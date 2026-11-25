@@ -1,0 +1,12 @@
+torch==2.15.0
+torchvision==0.29.2
+numpy==2.5.3
+scikit-learn==1.9.1
+opencv-python-headless
+pydicom==3.0.2
+# decoders for compressed DICOM (JPEG Lossless, JPEG-LS, JPEG 2000)
+pylibjpeg==2.1.0
+pylibjpeg-libjpeg==2.5.0
+pylibjpeg-openjpeg==2.6.0
+# CA certificates for the ImageNet weight download (python.org Python on macOS ships none)
+certifi

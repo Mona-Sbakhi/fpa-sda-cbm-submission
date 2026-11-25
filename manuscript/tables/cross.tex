@@ -1,0 +1,21 @@
+\begin{table}[!t]
+\centering
+\caption{Cross-dataset generalisation (frozen ResNet-50 features, 2048--16--2 head; mean over 20 runs). In: trained and tested on the same dataset (RSNA patient-grouped held-out test set of adults; Kermany official test folder). Cross: trained on the other dataset (Kermany, paediatric $\rightarrow$ RSNA, adults; RSNA $\rightarrow$ Kermany), with standardisation statistics of the training dataset. For every stochastic method the in-domain versus cross-dataset MCC difference has $p<10^{-4}$ (Wilcoxon signed-rank test); logistic regression is deterministic.}
+\label{tab:cross}
+\footnotesize
+\setlength{\tabcolsep}{3pt}
+\begin{tabular}{lcccccccccc}
+\toprule
+ & \multicolumn{5}{c}{Tested on RSNA} & \multicolumn{5}{c}{Tested on Kermany} \\
+ & MCC & \multicolumn{4}{c}{Trained on Kermany} & MCC & \multicolumn{4}{c}{Trained on RSNA} \\
+Method & in & MCC & AUC & Sens. & Spec. & in & MCC & AUC & Sens. & Spec. \\
+\midrule
+Logistic regression & 0.715 & 0.413 & 0.808 & 85.0 & 56.2 & 0.635 & 0.237 & 0.692 & 43.3 & 79.9 \\
+MLP, backprop (Adam) & 0.804 & 0.383 & 0.812 & 90.6 & 45.5 & 0.614 & 0.229 & 0.685 & 39.8 & 81.9 \\
+L-SHADE & 0.701 & 0.238 & 0.720 & 90.0 & 30.1 & 0.587 & 0.213 & 0.650 & 54.9 & 66.5 \\
+GA & 0.647 & 0.238 & 0.719 & 87.4 & 33.6 & 0.565 & 0.160 & 0.619 & 53.2 & 62.6 \\
+SDA & 0.415 & 0.112 & 0.600 & 74.8 & 35.6 & 0.381 & 0.118 & 0.575 & 55.8 & 54.8 \\
+Hybrid FPA--SDA & 0.327 & 0.103 & 0.589 & 79.8 & 28.8 & 0.345 & 0.095 & 0.572 & 59.9 & 49.1 \\
+\bottomrule
+\end{tabular}
+\end{table}
